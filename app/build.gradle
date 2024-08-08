@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.geminiaiwithpepper'
+    compileSdk 34
+    viewBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.example.geminiaiwithpepper"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+	implementation 'com.aldebaran:qisdk:1.7.5'
+	implementation 'com.aldebaran:qisdk-design:1.7.5'
+
+        // add the dependency for the Google AI client SDK for Android
+        implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+
+        // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
+        implementation("com.google.guava:guava:31.0.1-android")
+
+        // Required for streaming operations (to use `Publisher` from Reactive Streams)
+        implementation("org.reactivestreams:reactive-streams:1.0.4")
+
+
+}
